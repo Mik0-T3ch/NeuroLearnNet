@@ -2,6 +2,8 @@
 
 <H3>Primero debemos entender qué es una neurona en el contexto de Machine Learning.
 En esta área, la neurona básica recibe el nombre de perceptrón el perceptrón es un modelo matemático simple que recibe varias entradas, las combina mediante pesos, y produce una salida aplicando una función de activación. Este modelo es la base para el entrenamiento de sistemas más complejos, como modelos de Machine Learning y Deep Learning a través del entrenamiento con datasets, el perceptrón puede ajustar sus pesos para reducir errores, aprender patrones y mejorar su desempeño de forma iterativa.</H3>
+<img width="675" height="320" alt="image" src="https://github.com/user-attachments/assets/96689f40-2d0a-495f-9613-92e4df353dca" />
+
 
 <H2>El perceptron esta inspirado en una neurona biologica</H2>
 
