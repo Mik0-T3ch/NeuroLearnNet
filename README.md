@@ -43,17 +43,17 @@ problemas que son linealmente separables.<H3>
 <H1>Arquitectura del perceptrón monocapa</H1>
 
 
-<p style="font-size: 16px; line-height: 1.6;">
+<p style="font-size: 16px; line-height: 1.6;"> <h3>
   El <b>perceptrón monocapa</b> es la forma más simple de una red neuronal artificial.
   Su arquitectura está compuesta por <b>una sola neurona</b> (sin capas ocultas) y se utiliza principalmente
-  para problemas de <b>clasificación binaria</b> que sean <b>linealmente separables</b>.
+  para problemas de <b>clasificación binaria</b> que sean <b>linealmente separables</b>. </h3>
 </p>
 
 <hr>
 
 <h3 style="font-size: 22px; margin-top: 18px;"> Entradas (Inputs)</h3>
 <p style="font-size: 16px; line-height: 1.6;">
-  Las entradas representan las características o variables del problema. Se suelen representar como un vector:
+ <h4> Las entradas representan las características o variables del problema. Se suelen representar como un vector: </h4>
 </p>
 
 <pre style="font-size: 15px; padding: 12px; border-radius: 8px; background: #111; color: #eee; overflow-x: auto;">
@@ -61,14 +61,14 @@ x = (x1, x2, ..., xn)
 </pre>
 
 <p style="font-size: 16px; line-height: 1.6;">
-  Cada valor <b>xi</b> es un número que influye directamente en la salida final del perceptrón.
+ <h4> Cada valor <b>xi</b> es un número que influye directamente en la salida final del perceptrón. </h4>
 </p>
 
 <hr>
 
 <h3 style="font-size: 22px; margin-top: 18px;"> Pesos (Weights)</h3>
 <p style="font-size: 16px; line-height: 1.6;">
-  Cada entrada tiene asociado un peso que representa su importancia:
+<h4> Cada entrada tiene asociado un peso que representa su importancia: </h4> 
 </p>
 
 <pre style="font-size: 15px; padding: 12px; border-radius: 8px; background: #111; color: #eee; overflow-x: auto;">
@@ -76,15 +76,15 @@ w = (w1, w2, ..., wn)
 </pre>
 
 <p style="font-size: 16px; line-height: 1.6;">
-  Durante el entrenamiento, estos pesos se ajustan para reducir el error entre la predicción y la salida esperada.
+ <h4> Durante el entrenamiento, estos pesos se ajustan para reducir el error entre la predicción y la salida esperada. </h4>
 </p>
 
 <hr>
 
 <h3 style="font-size: 22px; margin-top: 18px;"> Sesgo (Bias)</h3>
 <p style="font-size: 16px; line-height: 1.6;">
-  El sesgo (<b>b</b>) es un valor adicional que permite desplazar el umbral de decisión del modelo, haciendo que
-  el perceptrón sea más flexible:
+<h4>  El sesgo (<b>b</b>) es un valor adicional que permite desplazar el umbral de decisión del modelo, haciendo que
+  el perceptrón sea más flexible: </h4>
 </p>
 
 <pre style="font-size: 15px; padding: 12px; border-radius: 8px; background: #111; color: #eee; overflow-x: auto;">
@@ -95,7 +95,7 @@ b = valor constante
 
 <h3 style="font-size: 22px; margin-top: 18px;"> Suma ponderada</h3>
 <p style="font-size: 16px; line-height: 1.6;">
-  El perceptrón calcula una combinación lineal entre entradas y pesos, sumando también el sesgo:
+ <h4>El perceptrón calcula una combinación lineal entre entradas y pesos, sumando también el sesgo: </h4>
 </p>
 
 <pre style="font-size: 15px; padding: 12px; border-radius: 8px; background: #111; color: #eee; overflow-x: auto;">
@@ -106,8 +106,8 @@ z = (x1*w1 + x2*w2 + ... + xn*wn) + b
 
 <h3 style="font-size: 22px; margin-top: 18px;"> Función de activación</h3>
 <p style="font-size: 16px; line-height: 1.6;">
-  Luego, el valor <b>z</b> pasa por una función de activación (comúnmente <b>escalón</b> o <b>signo</b>)
-  para producir una salida:
+ <h4> Luego, el valor <b>z</b> pasa por una función de activación (comúnmente <b>escalón</b> o <b>signo</b>)
+  para producir una salida: </h4>
 </p>
 
 <pre style="font-size: 15px; padding: 12px; border-radius: 8px; background: #111; color: #eee; overflow-x: auto;">
@@ -119,8 +119,8 @@ y = 0   si z < 0
 
 <h3 style="font-size: 22px; margin-top: 18px;"> Salida (Output)</h3>
 <p style="font-size: 16px; line-height: 1.6;">
-  La salida final es un valor binario (<b>0</b> o <b>1</b>), lo que hace que el perceptrón sea útil para
-  problemas de clasificación simple.
+<h4> La salida final es un valor binario (<b>0</b> o <b>1</b>), lo que hace que el perceptrón sea útil para
+  problemas de clasificación simple.</h4> 
 </p>
 
 <p style="font-size: 16px; line-height: 1.6;">
