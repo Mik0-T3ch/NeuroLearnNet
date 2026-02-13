@@ -1,14 +1,18 @@
 import numpy as np
 
+
 class Loss:
     def __init__(self, name="base"):
         self.name = name
 
     def forward(self, y_true, y_pred):
+        #calcula que tan mal esta prediciendo el modelo
         raise NotImplementedError("forward no implementado")
 
     def derivative(self, y_true, y_pred):
+        #indica como ajustar el modelo para mejorar la prediccionq
         raise NotImplementedError("derivative no implementado")
+
 
 class MSE(Loss):
     def __init__(self):
@@ -26,12 +30,14 @@ class MSE(Loss):
         deriv = (2 / n) * diff
         return deriv
 
+
 class BinaryCrossEntropy(Loss):
     def __init__(self):
         super().__init__("bce")
 
     def forward(self, y_true, y_pred):
-        eps = 1e-8
+        #se usa cuando la salida es 0 o 1
+        eps = 1e-8  #vita errores raros con log(0)
         y_pred_clipped = np.clip(y_pred, eps, 1 - eps)
 
         parte1 = y_true * np.log(y_pred_clipped)
@@ -41,6 +47,7 @@ class BinaryCrossEntropy(Loss):
         return loss
 
     def derivative(self, y_true, y_pred):
+        #ajuste para mejorar la prediccion
         eps = 1e-8
         y_pred_clipped = np.clip(y_pred, eps, 1 - eps)
 
@@ -55,6 +62,7 @@ LOSSES = {
     "bce": BinaryCrossEntropy(),
     "binary_crossentropy": BinaryCrossEntropy(),
 }
+
 
 def get_loss(nombre):
     nombre = str(nombre).lower().strip()
