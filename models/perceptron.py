@@ -3,14 +3,14 @@ import numpy as np
 class Perceptron:
 
     def __init__(self, lr=0.01, epochs=100, bias=True, seed=None, verbose=False):
-        self.lr = lr
-        self.epochs = epochs
-        self.bias = bias
+        self.lr = lr # lr = learning rate
+        self.epochs = epochs # epocas echas
+        self.bias = bias 
         self.seed = seed
         self.verbose = verbose
 
-        self.w = None
-        self.errors_ = []
+        self.w = None # pesos
+        self.errors_ = [] # errores por epoca
 
     def _asegurar_arrays(self, X, y):
         X = np.array(X, dtype=float)
@@ -30,18 +30,21 @@ class Perceptron:
         return Xb
 
     def _step(self, z):
+        #funcion escalon decision final 0 o 1
         if isinstance(z, np.ndarray):
             return (z >= 0).astype(int)
         else:
             return 1 if z >= 0 else 0
-        
+        #aca prepara los datos
     def fit(self, X, y):
         X, y = self._asegurar_arrays(X, y)
         Xb = self._poner_bias(X)
 
+         #normaliza las etiquetas si vienen como {-1, 1}
         if set(np.unique(y)) == {-1, 1}:
             y = (y == 1).astype(int)
 
+        #inicia los pesos pequeños
         rng = np.random.default_rng(self.seed)
         self.w = rng.normal(0, 0.01, Xb.shape[1])
 
@@ -51,7 +54,10 @@ class Perceptron:
             errores = 0
 
             for xi, yi in zip(Xb, y):
+                #salida lineal
+
                 z = np.dot(xi, self.w)
+                #prediccion binaria
                 y_hat = self._step(z)
 
                 error = yi - y_hat
@@ -70,7 +76,8 @@ class Perceptron:
                 break
 
         return self
-
+    
+    #devuelve un valor lineal 
     def net_input(self, X):
         X = np.array(X, dtype=float)
 
@@ -80,7 +87,8 @@ class Perceptron:
         Xb = self._poner_bias(X)
         z = Xb @ self.w
         return z
-
+    
+     #devuelve una prediccion
     def predict(self, X):
         z = self.net_input(X)
         return self._step(z)
